@@ -6,6 +6,7 @@ import { UserModule } from './user/user.module';
 import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from './prisma/prisma.module';
 import { ChatModule } from './chat/chat.module';
+import { ImageModule } from './image/image.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { ChatModule } from './chat/chat.module';
     UserModule,
     PrismaModule,
     ChatModule,
+    ImageModule,
   ],
   controllers: [],
   providers: [],

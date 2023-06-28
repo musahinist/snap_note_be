@@ -58,6 +58,42 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Image upload
+
+To handle file uploading, Nest provides a built-in module based on the [multer](https://github.com/expressjs/multer) middleware package for Express. Multer handles data posted in the `multipart/form-data` format, which is primarily used for uploading files via an HTTP `POST` request. This module is fully configurable and you can adjust its behavior to your application requirements.
+
+> warning **Warning** Multer cannot process data which is not in the supported multipart format (`multipart/form-data`). Also, note that this package is not compatible with the `FastifyAdapter`.
+
+For better type safety, let's install Multer typings package:
+
+```bash
+$ npm i -D @types/multer
+```
+
+The Cloudinary platform provides a variety of options for customizing how the files can be uploaded from your application. For example, you can upload the files using the [REST API](https://cloudinary.com/documentation/upload_images#uploading_with_a_direct_call_to_the_rest_api) or using a client library for your programming language.
+
+In this case, we’ll proceed to install the Node.js SDK using the following command.
+
+```bash
+$ npm install cloudinary
+```
+
+In order to use the Node.js SDK, you must configure the cloud_name, api_key, and the api_secret. These values are account-specific and can be found on the Dashboard page of your [account console](https://cloudinary.com/users/login). Add your `CLOUDINARY_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` in `.env` file
+
+```shell
+CLOUDINARY_NAME='luixaviles',
+CLOUDINARY_API_KEY='392635498516357',
+CLOUDINARY_API_SECRET='0ksCM92kfVsWkO8ajNBpThtdu58',
+```
+
+Before uploading this “File” to the cloud, it’s necessary to convert the Buffer into a Readable Stream for the SDK. There are several options to perform this operation, and this solution adds the streamifier package from NPM.
+
+Install the package as part of the project:
+
+```bash
+$ npm install streamifier
+```
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
