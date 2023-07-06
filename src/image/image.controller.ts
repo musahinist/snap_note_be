@@ -37,11 +37,12 @@ export class ImageController {
     this.imageService.upload(file);
   }
 
-  // @Post('upload-all')
-  // @UseInterceptors(FilesInterceptor('file[]', 5))
-  // uploadAll(@UploadedFiles() files: Array<Express.Multer.File>) {
-  //   return this.imageService.uploadAll(files);
-  // }
+  @Post('upload-all')
+  @UseInterceptors(FilesInterceptor('file[]', 5))
+  uploadAll(@UploadedFiles() files: Array<Express.Multer.File>) {
+    return this.imageService.uploadAll(files);
+  }
+
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.imageService.remove(id);

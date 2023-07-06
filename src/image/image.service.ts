@@ -22,11 +22,11 @@ export class ImageService {
     });
   }
 
-  // uploadAll(
-  //   files: Array<Express.Multer.File>,
-  // ): Promise<UploadApiResponse | UploadApiErrorResponse>[] {
-  //   return files.map((file) => this.upload(file));
-  // }
+  uploadAll(
+    files: Array<Express.Multer.File>,
+  ): Promise<Array<UploadApiResponse | UploadApiErrorResponse>> {
+    return Promise.all(files.map((file) => this.upload(file)));
+  }
 
   remove(id: string): Promise<UploadApiResponse | UploadApiErrorResponse> {
     return new Promise<UploadApiResponse>((resolve, reject) => {
