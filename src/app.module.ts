@@ -7,6 +7,7 @@ import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from './prisma/prisma.module';
 import { ChatModule } from './chat/chat.module';
 import { ImageModule } from './image/image.module';
+import { GameModule } from './game/game.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { ImageModule } from './image/image.module';
     PrismaModule,
     ChatModule,
     ImageModule,
+    GameModule,
   ],
   controllers: [],
   providers: [],

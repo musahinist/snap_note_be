@@ -1,0 +1,24 @@
+type Game {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateGameInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateGameInput {
+  id: Int!
+}
+
+type Query {
+  game: [Game]!
+  game(id: Int!): Game
+}
+
+type Mutation {
+  createGame(createGameInput: CreateGameInput!): Game!
+  updateGame(updateGameInput: UpdateGameInput!): Game!
+  removeGame(id: Int!): Game
+}
